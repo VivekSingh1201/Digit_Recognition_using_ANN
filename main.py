@@ -14,11 +14,11 @@ train_path = "datasets/mnist/train.csv"
 test_path  = "datasets/mnist/test.csv"
 
 if not os.path.exists(train_path) or not os.path.exists(test_path):
-    print("❌ Dataset not found!")
+    print(" Dataset not found!")
     print("   Place train.csv and test.csv inside: datasets/mnist/")
     exit()
 
-print("✅ Loading datasets...")
+print(" Loading datasets...")
 mnist_train = pd.read_csv(train_path)
 mnist_test  = pd.read_csv(test_path)
 
@@ -48,7 +48,7 @@ plt.pause(7)            # ← shows plot for 7 seconds then continues
 plt.close()
 
 # ── 3. Feature Engineering ────────────────────────────────────
-print("\n✅ Splitting features and labels...")
+print("\n Splitting features and labels...")
 X_train = mnist_train.iloc[:, 1:]    # pixel values (784 columns)
 Y_train = mnist_train.iloc[:, 0]     # labels (digit 0–9)
 
@@ -56,20 +56,20 @@ print(f"   X_train shape : {X_train.shape}")
 print(f"   Y_train shape : {Y_train.shape}")
 
 # ── 4. Build & Train ANN Model ────────────────────────────────
-print("\n✅ Building ANN model...")
+print("\n Building ANN model...")
 nn_model = MLPClassifier(hidden_layer_sizes=(50))
 
-print("⏳ Training... (this may take a minute)")
+print(" Training... (this may take a minute)")
 nn_model.fit(X_train, Y_train)
-print("✅ Training complete!")
+print(" Training complete!")
 
 # ── 5. Predict First Test Digit ───────────────────────────────
 prediction = nn_model.predict(mnist_test.iloc[0:1, ])
-print(f"\n🔢 Predicted digit for first test image: {prediction[0]}")
+print(f"\n Predicted digit for first test image: {prediction[0]}")
 
 # ── 6. Check Overall Accuracy ─────────────────────────────────
 train_accuracy = nn_model.score(X_train, Y_train) * 100
-print(f"📊 Training Accuracy: {train_accuracy:.2f}%")
+print(f" Training Accuracy: {train_accuracy:.2f}%")
 
 # report based on tain data
 print(classification_report(Y_train,prediction))
