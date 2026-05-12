@@ -4,7 +4,7 @@ A handwritten digit classifier built using sklearn's MLPClassifier on the MNIST 
 
 ## Results
 - Training Accuracy: 97.70%
-- Predicted first test digit: 2 ✅
+- Predicted first test digit: 2 
 
 ## Tech Stack
 - Python 3.13
